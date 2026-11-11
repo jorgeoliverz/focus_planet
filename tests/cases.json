@@ -1,0 +1,32 @@
+[
+  {
+    "name": "semana_excelente",
+    "stats": {"total_minutes": 600, "sessions": 14, "abandoned_sessions": 0, "best_day": "martes", "planets_built": 2},
+    "model_output": {"summary": "¡Semana estelar! 600 minutos en 14 sesiones.", "achievements": ["600 minutos de concentración", "Sin sesiones abandonadas"], "improvements": ["Mantén el ritmo el fin de semana"], "next_goal_minutes": 700, "mood": "celebrating"},
+    "expected": {"ok": true, "mood": "celebrating"}
+  },
+  {
+    "name": "semana_regular",
+    "stats": {"total_minutes": 120, "sessions": 4, "abandoned_sessions": 3, "best_day": "lunes", "planets_built": 0},
+    "model_output": {"summary": "Buen arranque el lunes, pero hubo varios abandonos.", "achievements": ["Tu mejor día fue el lunes"], "improvements": ["Prueba sesiones de 25 minutos", "Activa el bloqueo de apps antes de empezar"], "next_goal_minutes": 150, "mood": "encouraging"},
+    "expected": {"ok": true, "mood": "encouraging"}
+  },
+  {
+    "name": "sin_actividad",
+    "stats": {"total_minutes": 0, "sessions": 0, "abandoned_sessions": 0, "best_day": null, "planets_built": 0},
+    "model_output": {"summary": "Esta semana no despegamos. ¡Empecemos con algo pequeño!", "achievements": [], "improvements": ["Haz una sesión de 15 minutos hoy"], "next_goal_minutes": 45, "mood": "supportive"},
+    "expected": {"ok": true, "mood": "supportive", "achievements_empty": true}
+  },
+  {
+    "name": "json_invalido",
+    "stats": {"total_minutes": 300, "sessions": 8, "abandoned_sessions": 1, "best_day": "jueves", "planets_built": 1},
+    "model_text": "Claro, aquí tienes tu resumen: ¡genial semana!",
+    "expected": {"ok": false, "error_code": "invalid_response"}
+  },
+  {
+    "name": "error_429",
+    "stats": {"total_minutes": 300, "sessions": 8, "abandoned_sessions": 1, "best_day": "jueves", "planets_built": 1},
+    "api_error_code": 429,
+    "expected": {"ok": false, "error_code": "rate_limit"}
+  }
+]
